@@ -29,13 +29,18 @@ module Export::Tabular::People
     end
 
     def country
-      { 'CH' => 'CH',
+      {
+        'CH' => 'CH',
         'DE' => 'D',
         'FL' => 'FL',
         'FR' => 'F',
         'IT' => 'I',
         'AT' => 'A'
-      }[entry.country]
+      }.fetch(entry.country, 'CH')
+    end
+
+    def nationality_j_s
+      entry.nationality_j_s || 'CH'
     end
 
     def phone_private
