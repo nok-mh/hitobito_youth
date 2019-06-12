@@ -15,6 +15,10 @@ module Export::Tabular::People
       super(participation.person, format)
     end
 
+    def j_s_number
+      entry.j_s_number.to_s.try(:gsub, /\D/, '')
+    end
+
     def gender
       { 'm' => 1, 'w' => 2 }[entry.gender]
     end
